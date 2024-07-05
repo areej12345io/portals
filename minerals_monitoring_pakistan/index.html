@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Nav Bar with Bootstrap</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turf/6.5.0/turf.min.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="header">
+    <button id="sidebarToggleBtn" class="btn btn-outline-light">
+      <img src="menu.gif" alt="Menu Icon" width="30" height="30">
+    </button>
+    <span class="header-title">Minerals Monitoring Platform</span>
+  </div>
+
+  <div id="sidebar" class="sidenav">
+
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu0">
+       Basic Elements
+      </button>
+      <div id="subMenu0" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch101">
+            <label class="custom-control-label" for="customSwitch101"></label>
+          </div>
+          Geology
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch102">
+            <label class="custom-control-label" for="customSwitch102"></label>
+          </div>
+         Soil Type
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1003">
+            <label class="custom-control-label" for="customSwitch1003"></label>
+          </div>
+         LULC
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitchP1079">
+            <label class="custom-control-label" for="customSwitchP1079">Reserves</label>
+          </div>
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitchP10798">
+            <label class="custom-control-label" for="customSwitchP10798">Import</label>
+          </div>
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitchP107981">
+            <label class="custom-control-label" for="customSwitchP107981">Export</label>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu1">
+        KPK Minerals
+      </button>
+      <div id="subMenu1" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" id="deal" for="customSwitch1"></label>
+          </div>
+          Layer
+        </div>
+<!-- kpk_next layer-->
+<div class="btn btn-light">
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitch123">
+    <label class="custom-control-label" id="deal" for="customSwitch123"></label>
+  </div>
+  Minerals
+</div>
+<!-- kpk_next layer-->
+<div class="btn btn-light">
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitch1234">
+    <label class="custom-control-label" id="deal" for="customSwitch1234"></label>
+  </div>
+  Minerals pop-up's
+</div>
+
+
+
+
+
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch2">
+            <label class="custom-control-label" for="customSwitch2"></label>
+          </div>
+         Chart
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch202">
+            <label class="custom-control-label" for="customSwitch2"></label>
+          </div>
+        Legend
+        </div>
+       
+      </div>
+    </div>
+    
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu2">
+       AJK Minerals
+      </button>
+      <div id="subMenu2" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch3">
+            <label class="custom-control-label" for="customSwitch3"></label>
+          </div>
+      Layer
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch4">
+            <label class="custom-control-label" for="customSwitch4"></label>
+          </div>
+      Chart
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch404">
+            <label class="custom-control-label" for="customSwitch404"></label>
+          </div>
+      Legends
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu3">
+        Punjab
+      </button>
+      <div id="subMenu3" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch5">
+            <label class="custom-control-label" for="customSwitch5"></label>
+          </div>
+       Layer
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch6">
+            <label class="custom-control-label" for="customSwitch6"></label>
+          </div>
+          Legend
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch606">
+            <label class="custom-control-label" for="customSwitch606"></label>
+          </div>
+         Chart
+        </div>
+
+
+      </div>
+    </div>
+    
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu4">
+       Balochistan
+      </button>
+      <div id="subMenu4" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch789">
+            <label class="custom-control-label" for="customSwitch789"></label>
+          </div>
+          Layer
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch8">
+            <label class="custom-control-label" for="customSwitch8"></label>
+          </div>
+        Legend
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch808">
+            <label class="custom-control-label" for="customSwitch808"></label>
+          </div>
+       Chart
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch909">
+            <label class="custom-control-label" for="customSwitch909"></label>
+          </div>
+       Balochistan Mines
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch9090">
+            <label class="custom-control-label" for="customSwitch9090"></label>
+          </div>
+     Affected Zones
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch90900">
+            <label class="custom-control-label" for="customSwitch90900"></label>
+          </div>
+    Shake Map
+        </div>
+
+
+
+      </div>
+    </div>
+    
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu5">
+       Earth Quake
+      </button>
+      <div id="subMenu5" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch9">
+            <label class="custom-control-label" for="customSwitch9"></label>
+          </div>
+         Active Balochistan
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch20">
+            <label class="custom-control-label" for="customSwitch20"></label>
+          </div>
+        Active Makran Cost 
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch21">
+            <label class="custom-control-label" for="customSwitch21"></label>
+          </div>
+        Kohistan Kashmir
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch23">
+            <label class="custom-control-label" for="customSwitch23"></label>
+          </div>
+        Hindukush
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch24">
+            <label class="custom-control-label" for="customSwitch24"></label>
+          </div>
+       Faultlines
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch25">
+            <label class="custom-control-label" for="customSwitch25"></label>
+          </div>
+       PGA zones
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch26">
+            <label class="custom-control-label" for="customSwitch26"></label>
+          </div>
+       Chart
+        </div>
+
+
+
+      </div>
+    </div>
+    
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu6">
+        Landslide
+      </button>
+      <div id="subMenu6" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch301">
+            <label class="custom-control-label" for="customSwitch301"></label>
+          </div>
+          Zonation
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch302">
+            <label class="custom-control-label" for="customSwitch302"></label>
+          </div>
+         Inventories
+        </div>
+      </div>
+    </div>
+    
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu7">
+        GLOF
+      </button>
+      <div id="subMenu7" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch13">
+            <label class="custom-control-label" for="customSwitch13"></label>
+          </div>
+         Glof Sites
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch14">
+            <label class="custom-control-label" for="customSwitch14"></label>
+          </div>
+         Another Reason
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subMenu8">
+       Flood
+      </button>
+      <div id="subMenu8" class="collapse">
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch130">
+            <label class="custom-control-label" for="customSwitch130"></label>
+          </div>
+        2010 Flood 
+        </div>
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch140">
+            <label class="custom-control-label" for="customSwitch140"></label>
+          </div>
+       2011 Flood
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch142">
+            <label class="custom-control-label" for="customSwitch142"></label>
+          </div>
+       2012 Flood
+        </div>
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch143">
+            <label class="custom-control-label" for="customSwitch143"></label>
+          </div>
+       2013 Flood
+        </div>
+
+
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch144">
+            <label class="custom-control-label" for="customSwitch144"></label>
+          </div>
+       2014 Flood
+        </div>
+
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch145">
+            <label class="custom-control-label" for="customSwitch145"></label>
+          </div>
+       2015 Flood
+        </div>
+
+
+
+        <div class="btn btn-light">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch146">
+            <label class="custom-control-label" for="customSwitch146"></label>
+          </div>
+       2022 Flood
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <div class="content">
+    <!-- Main content goes here -->
+    <div id="map"></div>
+
+    <div class="popup-window" id="popupWindow">
+        <img src="earth_quake_minereals.png" alt="Chart Image" >
+    </div>
+
+    <div class="popup-window2" id="popupWindow2">
+        <img src="Reko Diq.png" alt="Chart Image">
+    </div>
+
+    <div class="popup-window3" id="popupWindow3">
+        <img src="reko dik mineral production.png" alt="Chart Image" >
+    </div>
+    <div class="popup-window4" id="popupWindow4" >
+      <img src="Estimated Reserves.png" alt="Chart Image">
+    </div>
+    <div class="popup-window5" id="popupWindow5" >
+      <img src="FINAL_IMPORT.png" alt="Chart Image">
+    </div>
+    <div class="popup-window6" id="popupWindow6" >
+      <img src="FINAL_PAK_EXPORT.png" alt="Chart Image">
+    </div>
+    <div class="popup-window7" id="popupWindow7" >
+      <img src="Import vs Export.png" alt="Chart Image">
+    </div>
+    <div class="popup-window8" id="popupWindow8" >
+      <img src="epicenter.jpeg" alt="Chart Image">
+    </div>
+    <div class="popup-window9" id="popup-window9">
+      <img src="geology.png" alt="Geology Chart">
+    </div>
+</div>
+
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+  <script src="kpk_minerals.geojson"></script>
+  <script src="AJK_minerals.geojson"></script>
+  <script src="punjab_geojson.geojson"></script>
+  <script src="balochistan_minerals.geojson"></script>
+  <script src="landslide_final_inventories.geojson"></script>
+  <script src="balochistan_mines.geojson"></script>
+  <script src="balochistan_earth_quake_circles.geojson"></script>
+  <script src="kpk_7dividions.geojson"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+body {
+    background-image: url('minerals.gif'); /* Replace 'your-background.gif' with your actual GIF file path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 40px;
+    z-index: 1000; /* Ensure header is above other content */
+    display: flex;
+    align-items: center;
+  }
+  .header-title {
+    margin-left: 30px; /* Adjust this value to control the space between the button and the heading */
+  }
+  #sidebarToggleBtn {
+    margin-right: 10px; /* Adjust this value to control the space between the button and the heading */
+  }
+  
+  .sidenav {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    top: 80px; /* Adjust for header height */
+    left: 0;
+    background-color: rgba(52, 58, 64, 0.6); /* Adjust the alpha value (0.6) as needed */
+    padding-top: 20px;
+    border-right: 3px solid #343a40;
+    overflow-y: auto; /* Add vertical scrollbar */
+    z-index: 1001; /* Ensure sidebar is above the map */
+     /* Ensure the sidebar is hidden by default */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  }
+  
+  .sidenav .btn-group-vertical {
+    width: 100%; /* Ensure btn-group-vertical spans the full width */
+  }
+  
+  .sidenav .btn {
+    text-align: left;
+    width: 100%; /* Ensure all buttons take full width */
+    height: 50px; /* Set a fixed height for buttons */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    padding: 0.5rem 1rem; /* Padding for button content */
+    background-color: #343a40; /* Match background color of main buttons */
+    color: #fff; /* Text color for main buttons */
+  }
+  
+  .sidenav .btn + .btn {
+    margin-top: 1rem;
+  }
+  
+  .sidenav .btn-group-vertical .collapse .btn {
+    text-align: left;
+    width: 100%; /* Ensure sub-buttons take full width */
+    height: 50px; /* Set a fixed height for sub-buttons */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    padding: 0.5rem 1rem; /* Padding for button content */
+    background-color: #23697e; /* Match background color of sub-buttons */
+    color: #fff; /* Text color for sub-buttons */
+  }
+  
+  .sidenav .btn-group-vertical .collapse .custom-control {
+    margin-right: 10px;
+  }
+  
+  .sidenav.active {
+/* Show sidebar */
+transform: translateX(0);
+}
+  
+  .content {
+    margin-left: 300px; /* Adjust for sidebar width */
+    padding: 100px 20px 20px 20px; /* Adjust for header height */
+    flex: 1;
+    position: relative; /* Add relative positioning to control stacking context */
+  }
+  
+  #map {
+    width: 100%;
+    height: 850px; /* Set a fixed height for the map */
+    position: relative; /* Add relative positioning to control stacking context */
+    z-index: 0; /* Ensure map is below the sidebar */
+    border: 3px solid #000;
+    margin-top: 2%;
+    border-radius: 15px;
+  }
+  #sidebarToggleBtn {
+    margin-right: auto; /* Push the button to the left */
+  }
+  
+
+  .popup-window, .popup-window2, .popup-window3, .popup-window4, .popup-window5, .popup-window6, .popup-window7, .popup-window8{
+    position: fixed; /* Fixed position relative to the viewport */
+    width: 390px; /* Fixed width */
+    height: auto; /* Auto height based on content */
+    padding: 20px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.popup-window img, .popup-window2 img, .popup-window3 img, .popup-window4 img, .popup-window5 img, .popup-window6 img, .popup-window7 img, .popup-window8 img, .popup-window9 img {
+    width: 100%; /* Ensure image fills its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any residual spacing */
+    max-width: 100%; /* Ensure image fits within container */
+}
+
+.popup-window {
+  top: 150px; /* Adjust top position as needed */
+  left: 90%; /* Center horizontally */
+  transform: translateX(-63%);
+  width: 450px; /* Adjust width as needed */
+  height: 500px; /* Adjust height as needed */
+  padding: 20px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  overflow: hidden; /* Hide overflow content */
+}
+
+.popup-window2 {
+    bottom: 145px;
+    left: 90%; /* Center horizontally */
+    transform: translateX(-55%);
+}
+
+.popup-window3 {
+    top: 130px; /* Adjust top position as needed */
+    left: 90%; /* Center horizontally */
+    transform: translateX(-55%);
+}
+
+.popup-window4 {
+    top: 150px; /* Adjust top position as needed */
+    left: 90%; /* Center horizontally */
+    transform: translateX(-63%);
+    width: 450px; /* Adjust width as needed */
+    height: 350px; /* Adjust height as needed */
+    padding: 20px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.popup-window5 {
+    top: 510px; /* Adjust top position as needed */
+    left: 90%; /* Center horizontally */
+    transform: translateX(-70%);
+    width: 480px; /* Adjust width as needed */
+    height: 350px; /* Adjust height as needed */
+    padding: 20px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    overflow: hidden; /* Hide overflow content */
+
+}
+
+.popup-window6 {
+  top: 510px; /* Adjust top position as needed */
+  left: 90%; /* Center horizontally */
+  transform: translateX(-70%);
+  width: 480px; /* Adjust width as needed */
+  height: 350px; /* Adjust height as needed */
+  padding: 20px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  overflow: hidden; /* Hide overflow content */
+
+}
+.popup-window7 {
+  top: 510px; /* Adjust top position as needed */
+  left: 90%; /* Center horizontally */
+  transform: translateX(-70%);
+  width: 480px; /* Adjust width as needed */
+  height: 400px; /* Adjust height as needed */
+  padding: 20px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  overflow: hidden; /* Hide overflow content */
+
+}
+.popup-window8 {
+  top: 380px; /* Adjust top position as needed */
+  left: 90%; /* Center horizontally */
+  transform: translateX(-70%);
+  width: 490px; /* Adjust width as needed */
+  height: 600px; /* Adjust height as needed */
+  padding: 20px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  overflow: hidden; /* Hide overflow content */
+
+}
+.popup-window9 {
+  position: fixed; /* Fixed position relative to the viewport */
+  bottom: 20px; /* Position 20px from the bottom */
+  right: 20px; /* Position 20px from the right */
+  width: 300px; /* Fixed width */
+  height: auto; /* Auto height based on content */
+  padding: 20px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  overflow: hidden; /* Hide overflow content */
+}
+
+@keyframes blinking {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.marker {
+  background-image: url('pie-chart.png');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 1000px; /* Adjust max-width of the popup */
+}
+
+.mapboxgl-popup-content {
+  background-color: rgba(248, 238, 238, 0.1); /* Adjust opacity and color as needed */
+  border-radius: 15px; /* Increase border radius for a more rounded look */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); /* Optional: increase box shadow for depth */
+  width: fit-content; /* Set width to fit the content size */
+  max-width: 120%; /* Limit max-width to ensure responsiveness */
+}
+
+.mapboxgl-popup-content img {
+ 
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  border-radius: 15px; /* Match the popup content's border radius */
+  max-width: 400%; /* Ensure image respects its container width */
+  max-height: 400px; /* Increase max-height for larger images */
+}

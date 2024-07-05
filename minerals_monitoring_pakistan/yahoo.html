@@ -1,0 +1,89 @@
+//First set of icons and related code
+const categoryIcons2 = {
+    "Rock-Salt": "https://i.ibb.co/GQkYYZZ/Rock-Salt.png",
+    "Potash-Brine": "https://i.ibb.co/GQkYYZZ/Rock-Salt.png",
+    "Limestone": "https://i.ibb.co/wK8yrY2/icon23.png",
+    "Iron-Ore": "https://i.ibb.co/JBbx8Cm/icon30.png",
+    "Argillaceous-Clay": "https://i.ibb.co/M5MVNVQ/icoon26.png",
+    "Gypsum": "https://i.ibb.co/M5MVNVQ/icoon26.png",
+    "Coal": "https://i.ibb.co/BTfpzrm/triangle.png",
+    "Latrite": "https://i.ibb.co/M5MVNVQ/icoon26.png",
+    "Bauxite": "https://i.ibb.co/M5MVNVQ/icoon26.png",
+    "Bentonite": "https://i.ibb.co/M5MVNVQ/icoon26.png",
+    "Fireclay": "https://i.ibb.co/NyNqxFZ/icon14.png",
+    "Silica-Sand": "https://i.ibb.co/GQkYYZZ/Rock-Salt.png",
+    "China-Clay": "https://i.ibb.co/XLvNq1m/icon7.png",
+    "Ocher": ""
+};
+
+const addedImages2 = new Set();
+const imagePromises2 = [];
+
+const createIconWithCircle2 = (imgUrl, iconName) => {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'Anonymous';
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const size = 64;
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            // Draw black circle
+            ctx.beginPath();
+            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.01)';
+            ctx.fill();
+
+            // Draw the image on top of the black circle
+            const imgSize = size * 0.8;
+            ctx.drawImage(img, (size - imgSize) / 2, (size - imgSize) / 2, imgSize, imgSize);
+
+            const imgData = ctx.getImageData(0, 0, size, size);
+            map.addImage(iconName, imgData); // Add image to the map with unique iconName
+            addedImages2.add(iconName); // Track added image names
+            resolve();
+        };
+        img.onerror = () => reject(`Failed to load image ${imgUrl}`);
+        img.src = imgUrl;
+    });
+};
+
+// Loop through categoryIcons2 to create images
+Object.keys(categoryIcons2).forEach(name => {
+    if (!addedImages2.has(name) && categoryIcons2[name].trim() !== "") {
+        const imagePromise = createIconWithCircle2(categoryIcons2[name], name);
+        imagePromises2.push(imagePromise);
+    }
+});
+// Load images and then add them to the map
+Promise.all(imagePromises2).then(() => {
+    console.log("All images loaded successfully.");
+
+    map.on('load', () => {
+        map.addSource("places2", {
+            type: "geojson",
+            data: punjab_minerals
+        });
+
+        console.log("GeoJSON source for Punjab added.");
+
+        map.addLayer({
+            id: "punjab-minerals",
+            type: "symbol",
+            source: "places2",
+            layout: {
+                "icon-image": ["get", "Mineral_Name"], // Assuming 'Mineral_Name' is a property in your GeoJSON features
+                "icon-size": 0.5,
+                "icon-allow-overlap": true,
+                "visibility": "none"
+            }
+        });
+
+        console.log("Punjab minerals layer added.");
+    });
+}).catch(error => {
+    console.error("Error loading or adding images:", error);
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

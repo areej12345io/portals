@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map with Tomorrow.io Tiles</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <script>
+        // Mapbox access token
+        mapboxgl.accessToken = 'pk.eyJ1Ijoicm9uaS1zaGFsZXYiLCJhIjoiY2thaDEzdGwyMDN1ejJzdGl5Z3Nhems1ZCJ9.C36_Th7LAixAB1t6WHodMw';
+
+        // Tomorrow.io API key
+        const API_KEY = 'aRIqn0QCnIJCYol7sHhbw4Z5Xf1pdR74';
+
+        // Data field and timestamp
+        const DATA_FIELD = 'cloudCover';
+        const TIMESTAMP = (new Date()).toISOString();
+
+        console.log(TIMESTAMP)
+
+        // Initialize the map
+        var map = (window.map = new mapboxgl.Map({
+            container: 'map',
+            zoom: 3,
+            center: [7.5, 58],
+            style: 'mapbox://styles/mapbox/light-v10',
+            antialias: true
+        }));
+
+        // Inject the tile layer
+        map.on('load', function() {
+            map.addSource('tomorrow-io-api', {
+                type: 'raster',
+                tiles: [`https://api.tomorrow.io/v4/map/tile/{z}/{x}/{y}/${DATA_FIELD}/2024-07-05T08:21:50.png?apikey=${API_KEY}`],
+                tileSize: 256,
+                attribution: '&copy; <a href="https://www.tomorrow.io/weather-api">Powered by Tomorrow.io</a>'
+            });
+            map.addLayer({
+                id: 'radar-tiles',
+                type: 'raster',
+                source: 'tomorrow-io-api',
+                minzoom: 1,
+                maxzoom: 12
+            });
+        });
+    </script>
+</body>
+</html>
